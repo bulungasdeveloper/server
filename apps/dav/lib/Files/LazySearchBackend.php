@@ -16,6 +16,10 @@ class LazySearchBackend implements ISearchBackend {
 	 */
 	private $backend = null;
 
+	public function getFileIds() {
+		return method_exists($this->backend, 'getFileIds') ? $this->backend->getFileIds() : [];
+	}
+
 	public function setBackend(ISearchBackend $backend) {
 		$this->backend = $backend;
 	}
